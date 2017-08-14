@@ -10,9 +10,6 @@ export default function List() {
           <Task />
         </li>
       </ul>
-      <div class="alert alert-primary" role="alert">
-  This is a primary alert—check it out!
-</div>
     </div>
   );
 }

@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as Actions from '../actions';
-// import { Badge } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import List from '../components/List';
+import ListForm from '../components/ListForm';
 
 
 class App extends Component {
   render() {
     return (
       <div>
-        <List />
-        <div class="alert alert-success" role="alert">...</div>
+        <ListForm />
+        <div className="container">
+          <Button>Create a List!</Button>
+          <List />
+        </div>
       </div>
     );
   }
