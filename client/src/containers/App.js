@@ -20,8 +20,29 @@ class App extends Component {
     this.props.actions.destroyTask(task);
   }
 
+  handleSubmitList() {
+    this.props.actions.submitList();
+  }
+
   render() {
     const showTaskForm = this.props.showTaskForm;
+
+    const taskButton = (
+      <button type="button"
+        className="btn btn-default btn-block"
+        onClick={() => this.handleShowTaskForm()}>
+          New Task
+      </button>
+    )
+
+    const listButton = (
+      <button type="button"
+        className="btn btn-default btn-block"
+        onClick={() => this.handleSubmitList()}>
+          New List
+      </button>
+    )
+
 
     return (
       <div>
@@ -30,11 +51,7 @@ class App extends Component {
           <div className="row">
             <div className="col-sm-6">
               <List tasks={this.props.tasks} handleDestroyTask={this.props.actions.destroyTask}/>
-              <button type="button"
-                className="btn btn-default btn-block"
-                onClick={() => this.handleShowTaskForm()}>
-                  New Task
-              </button>
+              { this.props.lists ? taskButton : listButton }
             </div>
             <div className="col-sm-6">
               {showTaskForm ? <TaskForm
@@ -51,7 +68,8 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     showTaskForm: state.tasks.showTaskForm,
-    tasks: state.tasks.collection
+    tasks: state.tasks.collection,
+    lists: state.lists.collection
   };
 }
 

@@ -24,6 +24,9 @@ export default function List(props) {
   return (
     <div>
       <div className="panel panel-default" style={panelStyle} >
+        <div className="panel-heading">
+          Tasks
+        </div>
         <div className="panel-body">
           <ul className="list-group" style={listStyle}>
             {tasks}

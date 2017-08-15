@@ -12,21 +12,29 @@ export default function(state = initialState, action) {
         ...state,
         showTaskForm: !action.showTaskForm,
       }
-    case actions.SUBMIT_TASK:
+    case actions.SUBMIT_TASK_SUCCESS:
       return {
         ...state,
         collection: [...state.collection, action.task]
       }
-    case actions.DESTROY_TASK:
+    case actions.SUBMIT_TASK_FAILURE:
+      return {
+        ...state,
+      }
+    case actions.DESTROY_TASK_SUCCESS:
       return {
         ...state,
         collection: state.collection.filter((task) => {
-          if (task.headline == action.task.headline) {
+          if (task.id == action.task.id) {
             return false;
           } else {
             return true;
           }
         })
+      }
+    case actions.DESTROY_TASK_FAILURE:
+      return {
+        ...state,
       }
     default:
       return state;

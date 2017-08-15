@@ -27,6 +27,9 @@ class TaskForm extends Component {
     return (
       <div>
         <div className="panel panel-default">
+          <div className="panel-heading">
+            New Task
+          </div>
           <div className="panel-body">
             <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
               <div className="form-group">
