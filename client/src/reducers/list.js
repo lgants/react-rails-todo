@@ -1,7 +1,7 @@
 import * as actions from '../actions';
 
 const initialState =  {
-  tasks: []
+  collection: [],
 };
 
 export default function(state = initialState, action) {
