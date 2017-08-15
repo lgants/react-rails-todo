@@ -34,10 +34,14 @@ export function submitTask(task = null) {
   }
 }
 export function submitTaskSuccess(task) {
-  return function(dispatch) {
+  return function(dispatch, getState) {
     dispatch({
       type: SUBMIT_TASK_SUCCESS,
       task: {...task}
+    }),
+    dispatch({
+      type: SHOW_TASK_FORM,
+      showTaskForm: getState().tasks.showTaskForm
     })
   }
 }
